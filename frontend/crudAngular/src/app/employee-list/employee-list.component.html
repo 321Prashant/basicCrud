@@ -1,0 +1,23 @@
+<p>employee-list works!</p>
+<table class="table table-striped">
+    <thead>
+    <tr> 
+        <th>Email
+        </th><th>First Name</th>
+        <th>Last Name</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let employ of employee">
+            <td>{{employ.email}}</td>
+            <td>{{employ.firstName}}</td>
+            <td>{{employ.lstName}}</td>
+            
+        
+        <td>
+            <button (click)="updateEmployee(employ.id)"  class = "btn btn-info">Update me ;-}</button>
+            <button (click)="deleteEmployee(employ.id)"  class = "btn btn-warning">Don't delete me</button>
+        </td>
+    </tr>
+    </tbody>
+</table>

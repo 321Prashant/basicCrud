@@ -1,0 +1,51 @@
+Service se lenge saara datya put post delete get jitna bhi kaam aara hai srpingboot se 
+[(ngModel)] = "emplyee.kuch bhi uss class ka data" 2 way binding ke liye new use kariye uss class ko call krne ke liye
+ empl:Employee = new Employee()
+
+ {{emp.kuch bhi uss class ka data}} ts file ka variable me change will be shown here so only use emp:Employee[] array of it notmally works
+
+ route use kare mst router in constructor in ts files 
+ ##
+{path:"updateEmployee/:id", component:UpdateEmployeeComponent}""
+##
+updateEmployee(id:number, employee:Employee):Observable<Employee>{
+    return this.HttpClient.put<Employee>(`http://localhost:8080/Getpath/updateEmployee/${id}`,employee)
+  }
+getEmployeeById(id:number):Observable<Employee>{
+    return this.HttpClient.get<Employee>(`http://localhost:8080/Getpath/getById/${id}`);
+##
+1-> this.router.navigate(["updateEmployee",id])
+aur iss type ka id ya data jo bhi paas krte hai ek page se dusre page pr 
+can be fetch by ACTIVATED route
+##
+this.id = this.route.snapshot.params['id'];
+
+##
+2-> 
+
+
+route can be setup as 
+{path:" ",redirectTo:'abc', pathMatch:'full'},
+{path:"createEmployee", component:CreateEmployeeComponent},
+{path:"updateEmployee/:id", component:UpdateEmployeeComponent}
+
+service class se data lete hue usko subscribe krke data=> data set print kare ya uss data ko employee class ke object me daale emp = data
+
+
+service can provide as 
+  getEmployeeList():Observable<Employee[]>{
+    return this.HttpClient.get<Employee[]>(`http://localhost:8080/Getpath/getAllEmployees`);
+  }
+  createEmployee(employee:Employee):Observable<Employee>{
+    return this.HttpClient.post<Employee>(`http://localhost:8080/Getpath/saveEmployee`,employee)
+  }
+  updateEmployee(id:number, employee:Employee):Observable<Employee>{
+    return this.HttpClient.put<Employee>(`http://localhost:8080/Getpath/updateEmployee/${id}`,employee)
+  }
+  getEmployeeById(id:number):Observable<Employee>{
+    return this.HttpClient.get<Employee>(`http://localhost:8080/Getpath/getById/${id}`);
+
+
+
+    Cors error cors policy lagana naa bhoole 
+    @CrossOrigin(origins = "http://localhost:4200/") or just "*"
