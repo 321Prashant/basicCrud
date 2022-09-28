@@ -20,8 +20,10 @@ can be fetch by ACTIVATED route
 ##
 this.id = this.route.snapshot.params['id'];
 
+this.router.navigate=(["/"])
+
 ##
-2-> 
+2-> in html tags provide routerLink="/from routeing moidule path"
 
 
 route can be setup as 
@@ -49,3 +51,15 @@ service can provide as
 
     Cors error cors policy lagana naa bhoole 
     @CrossOrigin(origins = "http://localhost:4200/") or just "*"
+
+
+    # Login we provide #FormLogin=ngForm (ngSubmit)=login(FormLogin)  <--- from forms module
+    in function directly pass(login(FormLogin:NgForm)<----without adding any type of it like any,number,String)
+
+    now FormLogin.value will give its value inside
+
+    Ab agar koi request jisme authentication nahi hori hogi there we use what 
+    requestHeader ----> No-Auth for that URl backend ki side maine usko antmatcher me paas kara hai
+     requestHeader= new HttpHeaders(
+    {"No-Auth":"true"}
+  )

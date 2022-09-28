@@ -1,0 +1,13 @@
+package com.example.crud.controller;
+
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.crud.model.Role;
+
+@RestController
+public class RoleController {
+
+	public Role createNewRole() {
+		return null;
+	}
+}
