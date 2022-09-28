@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
 import { UserComponent } from './user/user.component';
+import { AuthGuard } from './_auth/auth.guard';
 
 const routes: Routes = [
 {path:"employees", component:EmployeeListComponent},
@@ -15,8 +16,8 @@ const routes: Routes = [
 {path:"createEmployee", component:CreateEmployeeComponent},
 {path:"updateEmployee/:id", component:UpdateEmployeeComponent},
 {path:"home", component:HomeComponent},
-{path:"admin", component:AdminComponent},
-{path:"user", component:UserComponent},
+{path:"admin", component:AdminComponent,canActivate:[AuthGuard], data:{roles:['Admin']}},
+{path:"user", component:UserComponent,canActivate:[AuthGuard], data:{roles:['User']}},
 {path:"login", component:LoginComponent},
 {path:"forbidden", component:ForbiddenComponent}
 

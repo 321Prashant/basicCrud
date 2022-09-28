@@ -27,6 +27,6 @@ export class UserAuthService {
     sessionStorage.clear();
   }
   isLoggedIn(){
-    return this.getRoles() &&this.getToken()
+    return this.getRoles() &&this.getToken();
   }
 }
