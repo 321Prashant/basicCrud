@@ -23,4 +23,10 @@ export class UserAuthService {
   getRoles():[]{
     return JSON.parse(localStorage.getItem("Roles"));
   }
+  clear(){
+    sessionStorage.clear();
+  }
+  isLoggedIn(){
+    return this.getRoles() &&this.getToken();
+  }
 }
